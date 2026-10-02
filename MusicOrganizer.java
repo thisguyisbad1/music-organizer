@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.io.File;
 
 /**
  * A class to hold details of audio files.
@@ -17,6 +18,10 @@ public class MusicOrganizer
     public MusicOrganizer()
     {
         files = new ArrayList<>();
+        files.add("tung1");
+        files.add("tung2");
+        files.add("tung3");
+        files.add("tung4");
     }
     
     /**
@@ -41,9 +46,10 @@ public class MusicOrganizer
      * List a file from the collection.
      * @param index The index of the file to be listed.
      */
+    //qusetion 3
     public void listFile(int index)
     {
-        if(index >= 0 && index < files.size()) {
+        if(validIndex(index) == true) {
             String filename = files.get(index);
             System.out.println(filename);
         }
@@ -53,10 +59,50 @@ public class MusicOrganizer
      * Remove a file from the collection.
      * @param index The index of the file to be removed.
      */
+    //question 3
     public void removeFile(int index)
     {
-        if(index >= 0 && index < files.size()) {
+        if(validIndex(index)==true) {
             files.remove(index);
+        }
+    }
+    
+    //question 1
+    public void checkIndex(int i){
+        if (i >= 0 && i < files.size()){
+        
+        }
+        else{
+            System.out.println("Error: invalid index. Enter index between 0 and " + (files.size()-1));
+        }
+    }
+    
+    //question 2
+    public boolean validIndex(int i){
+        if(i >= 0 && i < files.size()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    //question 4
+    public void listAllFiles(){
+        //question 7
+        int position = 0;
+        for (String myFiles: files){
+            System.out.println(position + ": " + files.get(position));
+            position ++;
+        }
+    }
+    
+    public void listMatching(String searchString){
+        for(String filename : files){
+            if(filename.contains(searchString)){
+                //a match
+                System.out.println(filename);
+            }
         }
     }
 }
