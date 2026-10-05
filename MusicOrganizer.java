@@ -97,12 +97,19 @@ public class MusicOrganizer
         }
     }
     
+    //question 8
     public void listMatching(String searchString){
+        boolean found = false;
         for(String filename : files){
             if(filename.contains(searchString)){
                 //a match
                 System.out.println(filename);
+                found = true;
             }
+        }
+        //question 9
+        if (!found){
+            System.out.println("not found");
         }
     }
 }
